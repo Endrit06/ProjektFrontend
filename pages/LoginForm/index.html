@@ -498,7 +498,7 @@
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Clear previous status
+            
             loginStatus.className = 'login-status';
             loginStatus.textContent = '';
             
@@ -526,7 +526,7 @@
             
            
             if (isValid) {
-                // Show loading state on button
+              
                 const submitBtn = loginForm.querySelector('.login-btn');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Signing In...';
