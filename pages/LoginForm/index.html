@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Bean | Coffee Login</title>
+    <title>CEZORA | Coffee Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -390,16 +390,13 @@
                 <div class="logo-icon">
                     <i class="fas fa-coffee"></i>
                 </div>
-                <div class="logo-text">Brew & <span>Bean</span></div>
+                <div class="logo-text">CEZORA</div>
             </div>
             
             <h1 class="welcome-text">Welcome Back</h1>
             <p class="subtitle">Sign in to your account to continue your coffee journey</p>
             
-            <div class="credentials-hint">
-                <strong>Demo Credentials:</strong>
-                Username: <strong>endritizeti</strong> | Password: <strong>admin</strong>
-            </div>
+            
             
             <form id="loginForm">
                 <div class="form-group" id="usernameGroup">
@@ -537,7 +534,7 @@
                 setTimeout(() => {
                     
                     if (usernameValue === STATIC_USERNAME && passwordValue === STATIC_PASSWORD) {
-                        // Show success message
+                       
                         loginStatus.textContent = 'Login successful! Redirecting to About Page...';
                         loginStatus.className = 'login-status success';
                         
@@ -583,7 +580,7 @@
             }
         });
         
-    
+        
         document.querySelector('.signup-link a').addEventListener('click', function(e) {
             e.preventDefault();
             alert('Redirecting to sign up page...');
