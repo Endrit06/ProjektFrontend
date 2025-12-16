@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEZORA | Coffee Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #3e2723;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(#5d4037 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background-color: #fff;
+        }
+        
+        .coffee-side {
+            flex: 1;
+            background: linear-gradient(rgba(94, 75, 50, 0.85), rgba(94, 75, 50, 0.9)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .login-side {
+            flex: 1;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f9f5f0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #8d6e63;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #fff;
+            font-size: 22px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #5d4037;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span {
+            color: #d7ccc8;
+        }
+        
+        .welcome-text {
+            font-size: 32px;
+            color: #5d4037;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: #8d6e63;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .credentials-hint {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        
+        .credentials-hint strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5d4037;
+            font-weight: 500;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a1887f;
+            font-size: 18px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            border: 2px solid #d7ccc8;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #fff;
+            color: #5d4037;
+        }
+        
+        .form-control:focus {
+            border-color: #8d6e63;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2);
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #a1887f;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember-me input {
+            margin-right: 8px;
+        }
+        
+        .remember-me label {
+            color: #5d4037;
+        }
+        
+        .forgot-password {
+            color: #8d6e63;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .forgot-password:hover {
+            color: #5d4037;
+            text-decoration: underline;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #6d4c41;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 25px;
+        }
+        
+        .login-btn:hover {
+            background-color: #5d4037;
+        }
+        
+        .signup-link {
+            text-align: center;
+            color: #8d6e63;
+        }
+        
+        .signup-link a {
+            color: #6d4c41;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .coffee-quote {
+            font-size: 24px;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .coffee-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .coffee-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .coffee-features i {
+            margin-right: 15px;
+            color: #d7ccc8;
+            font-size: 20px;
+        }
+        
+        .error-message {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #388e3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .form-control {
+            border-color: #d32f2f;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .form-group.success .form-control {
+            border-color: #388e3c;
+        }
+        
+        .coffee-beans {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+        }
+        
+        .coffee-bean {
+            width: 30px;
+            height: 15px;
+            background-color: #5d4037;
+            border-radius: 50%;
+            margin-right: 5px;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 500px;
+            }
+            
+            .coffee-side {
+                padding: 30px;
+                order: 2;
+            }
+            
+            .login-side {
+                order: 1;
+                padding: 40px 30px;
+            }
+            
+            .coffee-beans {
+                display: none;
+            }
+        }
+        
+        .coffee-steam {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: steam 3s infinite;
+        }
+        
+        @keyframes steam {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-10px) scale(1.05); opacity: 0.5; }
+        }
+        
+        .login-status {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            font-weight: 500;
+        }
+        
+        .login-status.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+            display: block;
+        }
+        
+        .login-status.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="coffee-side">
+            <div class="coffee-steam">
+                <i class="fas fa-coffee"></i>
+            </div>
+            
+            <h2 class="coffee-quote">"Good coffee is a pleasure, good friends make it a treasure."</h2>
+            
+            <ul class="coffee-features">
+                <li><i class="fas fa-check-circle"></i> Access exclusive coffee recipes</li>
+                <li><i class="fas fa-check-circle"></i> Track your coffee brewing history</li>
+                <li><i class="fas fa-check-circle"></i> Join our coffee tasting community</li>
+                <li><i class="fas fa-check-circle"></i> Get personalized coffee recommendations</li>
+            </ul>
+            
+            <div class="coffee-beans">
+                <div class="coffee-bean"></div>
+                <div class="coffee-bean"></div>
+                <div class="coffee-bean"></div>
+                <div class="coffee-bean"></div>
+            </div>
+        </div>
+        
+       
+        <div class="login-side">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="logo-text">CEZORA</div>
+            </div>
+            
+            <h1 class="welcome-text">Welcome Back</h1>
+            <p class="subtitle">Sign in to your account to continue your coffee journey</p>
+            
+            
+            
+            <form id="loginForm">
+                <div class="form-group" id="usernameGroup">
+                    <label for="username">Username</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your username">
+                    </div>
+                    <div class="error-message" id="usernameError">Please enter a valid username</div>
+                </div>
+                
+                <div class="form-group" id="passwordGroup">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                        <button type="button" class="password-toggle" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="passwordError">Please enter your password</div>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <div id="loginStatus" class="login-status"></div>
+                
+                <button type="submit" class="login-btn">Sign In</button>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Create one now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        const usernameGroup = document.getElementById('usernameGroup');
+        const passwordGroup = document.getElementById('passwordGroup');
+        const usernameError = document.getElementById('usernameError');
+        const passwordError = document.getElementById('passwordError');
+        const loginStatus = document.getElementById('loginStatus');
+        
+        
+        const STATIC_USERNAME = "endritizeti";
+        const STATIC_PASSWORD = "admin";
+        
+       
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            
+            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        });
+        
+        
+        function validateUsername(username) {
+            return username.trim() !== '';
+        }
+        
+        function validatePassword(password) {
+            return password.trim() !== '';
+        }
+        
+     
+        usernameInput.addEventListener('input', function() {
+            if (validateUsername(this.value)) {
+                usernameGroup.classList.remove('error');
+                usernameGroup.classList.add('success');
+            } else {
+                usernameGroup.classList.remove('success');
+            }
+        });
+        
+        passwordInput.addEventListener('input', function() {
+            if (validatePassword(this.value)) {
+                passwordGroup.classList.remove('error');
+                passwordGroup.classList.add('success');
+            } else {
+                passwordGroup.classList.remove('success');
+            }
+        });
+        
+     
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+
+            loginStatus.className = 'login-status';
+            loginStatus.textContent = '';
+            
+            let isValid = true;
+            const usernameValue = usernameInput.value.trim();
+            const passwordValue = passwordInput.value.trim();
+            
+           
+            if (!validateUsername(usernameValue)) {
+                usernameGroup.classList.add('error');
+                usernameError.textContent = 'Please enter your username';
+                isValid = false;
+            } else {
+                usernameGroup.classList.remove('error');
+            }
+            
+            
+            if (!validatePassword(passwordValue)) {
+                passwordGroup.classList.add('error');
+                passwordError.textContent = 'Please enter your password';
+                isValid = false;
+            } else {
+                passwordGroup.classList.remove('error');
+            }
+            
+            
+            if (isValid) {
+             
+                const submitBtn = loginForm.querySelector('.login-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Signing In...';
+                submitBtn.disabled = true;
+                
+                
+                setTimeout(() => {
+                    
+                    if (usernameValue === STATIC_USERNAME && passwordValue === STATIC_PASSWORD) {
+                       
+                        loginStatus.textContent = 'Login successful! Redirecting to About Page...';
+                        loginStatus.className = 'login-status success';
+                        
+                       
+                        setTimeout(() => {
+                         
+                            window.location.href = '../HomePage/index.html';
+                        }, 1500);
+                    } else {
+                     
+                        loginStatus.textContent = 'Invalid username or password. Try: username: endritizeti, password: admin';
+                        loginStatus.className = 'login-status error';
+                        
+                
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        
+                       
+                        if (usernameValue !== STATIC_USERNAME) {
+                            usernameGroup.classList.add('error');
+                            usernameError.textContent = 'Username is incorrect';
+                        }
+                        
+                        if (passwordValue !== STATIC_PASSWORD) {
+                            passwordGroup.classList.add('error');
+                            passwordError.textContent = 'Password is incorrect';
+                        }
+                    }
+                }, 1000);
+            }
+        });
+        
+    
+        document.querySelector('.forgot-password').addEventListener('click', function(e) {
+            e.preventDefault();
+            const username = usernameInput.value.trim();
+            
+            if (username && validateUsername(username)) {
+                alert(`Password reset instructions sent for username: ${username}`);
+            } else {
+                alert('Please enter your username first');
+                usernameInput.focus();
+            }
+        });
+        
+        
+        document.querySelector('.signup-link a').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Redirecting to sign up page...');
+        });
+    </script>
+</body>
+</html>
