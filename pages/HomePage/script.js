@@ -8,30 +8,31 @@ menuOpenButton.addEventListener("click", () => {
 menuCloseButton.addEventListener("click", () => menuOpenButton.click());
 
 
-const swiper = new Swiper('.slider-wrapper', 
-// Optional parameters
-direction: 'vertical', loop: true,
+const swiper = new Swiper('.slider-wrapper', {
+direction: 'vertical',
+loop: true,
 grabCursor: true,
 spaceBetween: 25,
-// If we need
-pagination
+
 pagination: {
-el: '"swiper-pagination',
+el: ".swiper-pagination",
 clickable: true,
 dynamicBullets: true,
 },
-// Navigation arrows
+
 navigation: {
-nextEl: '.swiper-button-next', prevEl: '"swiper-button-prev',
-}
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+});
 breakpoints: 
-    0: {
+    0; {
         slidesPerView: 1
-    },
-     768: {
+    }
+     768; {
         slidesPerView: 2
 }
- 1024: {
+ 1024; {
         slidesPerView: 3
     
-});
+};
